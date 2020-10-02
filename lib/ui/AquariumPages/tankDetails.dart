@@ -24,10 +24,10 @@ class FishTankDetails extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '   Tank Specs',
+                  '   Specifications',
                   style: TextStyle(
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.w500,
                       color: Colors.black54),
                 ),
 
@@ -49,9 +49,9 @@ class FishTankDetails extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '    ${tank.size} gallon ${tank.shape.toLowerCase()}',
+                  '     ${tank.size} gallon ${tank.shape.toLowerCase()}',
                   style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize:18.0,
                       color: Colors.black54),
                 ),
 
@@ -61,9 +61,9 @@ class FishTankDetails extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '    ${tank.plantDensity}',
+                  '     ${tank.plantDensity}',
                   style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       color: Colors.black54),
                 ),
 
@@ -73,15 +73,15 @@ class FishTankDetails extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '    ${tank.substrate}',
+                  '     ${tank.substrate}',
                   style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       color: Colors.black54),
                 ),
 
               ),
 
-              SizedBox(height: 20),
+              SizedBox(height: 40),
 
               RaisedButton(onPressed: () {debugPrint('hello');},
                 padding: EdgeInsets.fromLTRB(100.0, 15.0, 100.0, 15.0),

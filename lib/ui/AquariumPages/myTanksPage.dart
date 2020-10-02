@@ -33,21 +33,43 @@ class MyTanksPage extends StatelessWidget {
       body: ListView.builder(
           itemCount: tankList.length,
           itemBuilder: (BuildContext context, int index) {
-        return Card(
-          color: Colors.white,
-          child: ListTile(
+            //return tankCard(tankList[index], context);
+            return Card(
+              elevation: 4.5,
+              color: Colors.white,
+              child: ListTile(
 
-            title: Text(tankList[index].name),
-            subtitle: Text("${tankList[index].size} gallons"),
-            trailing: Text("..."),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(
+              title: Text(tankList[index].name),
+              subtitle: Text("${tankList[index].size} gallons"),
+              trailing: Text("..."),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
                   builder: (context) => FishTankDetails(tank: tankList[index],)));
-            }
-          ),
+              }
+            ),
 
-        );
-      })
+          );
+          })
+    );
+  }
+
+  Widget tankCard(Tank tank, BuildContext context){
+    return InkWell(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 120.0,
+        child: Card(
+          color: Colors.black54,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Text(tank.name)
+            ],
+          )
+
+        )
+      )
     );
   }
 }
