@@ -38,6 +38,19 @@ class ContactPage extends StatelessWidget {
                     ),
                   ]),
 
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      '      Feel free to send us your suggestions!',
+                      style: TextStyle(
+                          fontSize:18.0,
+                          color: Colors.black54),
+                    ),
+
+                  ),
+
+                  SizedBox(height: 20),
+
                   //tank size and shape
                   Align(
                     alignment: Alignment.centerLeft,
@@ -62,7 +75,7 @@ class ContactPage extends StatelessWidget {
 
                   ),
 
-                  
+
 
                 ]
             )
