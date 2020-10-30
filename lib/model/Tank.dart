@@ -1,7 +1,8 @@
 import 'dart:collection';
 
-class Tank {
+import 'package:flutter/cupertino.dart';
 
+class Tank {
   static List<Tank> getTanks() => [
     Tank("Big Tank", 38, "Regular", "Lightly Planted", "Sand",
         {"Angelfish": 2, "Serpae Tetras": 7, "Ember Tetra": 1}),
