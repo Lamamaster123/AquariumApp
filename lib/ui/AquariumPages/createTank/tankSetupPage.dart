@@ -35,12 +35,16 @@ class TankSetupPage extends StatelessWidget {
               TextField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Enter name'
+                  border: new OutlineInputBorder(
+                    borderRadius: new BorderRadius.circular(25.0),
+                    borderSide: new BorderSide(),
+                  ),
+                  hintText: 'Enter name',
+                  fillColor: Colors.white,
                 ),
               ),
               SizedBox(height: 40),
-              
+
               Text(
                 "Size",
                 textAlign: TextAlign.left,
@@ -53,7 +57,31 @@ class TankSetupPage extends StatelessWidget {
               TextField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                    border: InputBorder.none,
+                    border: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(25.0),
+                      borderSide: new BorderSide(),
+                    ),
+                    hintText: 'Enter size in gallons'
+                ),
+              ),
+              SizedBox(height: 40),
+
+              Text(
+                "Size",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black54),
+              ),
+
+              TextField(
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                    border: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(25.0),
+                      borderSide: new BorderSide(),
+                    ),
                     hintText: 'Enter size in gallons'
                 ),
               ),
