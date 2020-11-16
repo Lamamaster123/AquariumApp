@@ -1,9 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_project/model/Fish.dart';
+import 'package:test_project/ui/GalleryPages/fishDetails.dart';
 
-class addFishPage extends StatelessWidget {
-  final List<Fish> fishList = Fish.getFish();
+class AddFishPage extends StatefulWidget {
+  @override
+  _AddFishPageState createState() => _AddFishPageState();
+}
+
+class _AddFishPageState extends State<AddFishPage> {
+  List<Fish> fishList = Fish.getFish();
+
+  addFish(int index) {
+
+    setState(() {
+      fishList[index].numberOfFish += 1;
+    });
+
+  }
+
+  deleteFish(int index) {
+    if (fishList[index].numberOfFish > 0) {
+      setState(() {
+        fishList[index].numberOfFish -= 1;
+      });
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +35,91 @@ class addFishPage extends StatelessWidget {
           title: Text('Add Fish'),
           backgroundColor: Colors.blueGrey,
         ),
-        body: Container(
+        body: ListView.separated(
+            separatorBuilder: (context, index) => Divider(
+              color: Colors.white,
+            ),
+            itemCount: fishList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Stack(
+                children:<Widget> [
+                  Positioned(
+                    child: Card(
+                      margin: EdgeInsets.only(left: 20),
+                      elevation: 4.5,
+                      color: Colors.white,
+                      child: ListTile(
+
+                        title: Text(fishList[index].name),
+                        subtitle: Text("${fishList[index].temperament}"),
+                        leading: CircleAvatar(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              //color: Colors.blue,
+                              borderRadius: BorderRadius.circular(13.9),
+                            ),
+                            child: Text(""),
+                          )
+                        ),
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => FishDetails(fish: fishList[index],)));
+                      }
+                    ),
+                    ),
+                  ),
+                  Positioned(
+                      top: 10.0,
+                      left: 30.0,
+                      child: fishImage(fishList[index].image)
+                  ),
+
+                  Positioned(
+                    top: 10.0,
+                    left: 360.0,
+                    child: IconButton(
+                      icon: Icon(Icons.add),
+                      onPressed: () {
+                        addFish(index);
+                      },
+                    )
+                  ),
+
+                  Positioned(
+                    top: 14.0,
+                    left: 340.0,
+                    child: Text(
+
+                      fishList[index].numberOfFish.toString(),
+                      style: TextStyle(
+                          fontSize: 35.0,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+
+                    ),
+
+                  ),
+
+                  Positioned(
+                      top: 10.0,
+                      left: 295.0,
+                      child: IconButton(
+                        icon: Icon(Icons.remove),
+                        onPressed: () {
+                          deleteFish(index);
+                        },
+                      )
+                  ),
+
+
+
+
+
+
+                ],
+              );
+            })
+        /*body: Container(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
@@ -54,7 +161,21 @@ class addFishPage extends StatelessWidget {
 
                 ]
             )
+        )*/
+    );
+  }
+
+  Widget fishImage(String imageUrl) {
+    return Container(
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          image: NetworkImage(imageUrl ?? ''),
+          fit: BoxFit.cover,
         )
+      ),
     );
   }
 }

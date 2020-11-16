@@ -16,7 +16,7 @@ class _CyclingPageState extends State<CyclingPage> {
   });
 
   Future navigateToSubPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => addFishPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AddFishPage()));
   }
 
 

@@ -21,6 +21,7 @@ class GalleryPage extends StatelessWidget {
             itemCount: fishList.length,
             itemBuilder: (BuildContext context, int index) {
               return Card(
+                elevation: 4.5,
                 color: Colors.white,
                 child: ListTile(
 

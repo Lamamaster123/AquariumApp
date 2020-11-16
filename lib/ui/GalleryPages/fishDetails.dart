@@ -11,10 +11,11 @@ class FishDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sub Page'),
+        title: Text('' + fish.name),
         backgroundColor: Colors.blueGrey,
       ),
       body: Center(
+
 
       ),
     );
