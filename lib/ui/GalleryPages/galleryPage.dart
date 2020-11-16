@@ -7,7 +7,7 @@ import 'fishDetails.dart';
 class GalleryPage extends StatelessWidget {
   final List<Fish> fishList = Fish.getFish();
 
-  get tankList => null;
+  //get tankList => null;
 
   @override
   Widget build(BuildContext context) {

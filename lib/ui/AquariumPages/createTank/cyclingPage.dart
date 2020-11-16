@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_project/ui/AquariumPages/createTank/addFishPage.dart';
 
 
 class CyclingPage extends StatefulWidget {
@@ -13,7 +14,12 @@ class _CyclingPageState extends State<CyclingPage> {
   void _onCycled(bool newValue) => setState(() {
     cycled = newValue;
   });
-//onPressed: _isButtonDisabled ? null : _incrementCounter,
+
+  Future navigateToSubPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => addFishPage()));
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +30,7 @@ class _CyclingPageState extends State<CyclingPage> {
             IconButton(
               icon: Icon(Icons.arrow_forward),
               onPressed: () {
-                cycled ? debugPrint("hello") : null;
-                //navigateToSubPage(context);
+                cycled ? navigateToSubPage(context) : null;
               },
             )
           ],
