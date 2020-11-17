@@ -25,7 +25,7 @@ class _CyclingPageState extends State<CyclingPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Cycling'),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Color(0xFF96C7C2),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.arrow_forward),
@@ -46,7 +46,7 @@ class _CyclingPageState extends State<CyclingPage> {
                       "Have you cycled your tank yet?",
                       style: TextStyle(
                           fontSize: 25.0,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                           color: Colors.black54),
                     ),
                   ),
@@ -90,7 +90,7 @@ class _CyclingPageState extends State<CyclingPage> {
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           fontSize: 20.0,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
                           color: Color(0xFF6E7FAA)),
                     ),
                   ),
@@ -133,7 +133,7 @@ class _CyclingPageState extends State<CyclingPage> {
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           fontSize: 20.0,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
                           color: Color(0xFF6E7FAA)),
                     ),
                   ),

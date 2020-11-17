@@ -11,6 +11,14 @@ class Fish {
         -1, -1, -1, 10, "Heavily Planted", "Regular", "", "Slow-moving Amazon blackwater river",
         "Sensitive to changes in water parameters, not recommended newly-cycled tanks"
     ),
+    Fish("https://www.fishkeepingworld.com/wp-content/uploads/2019/03/Rummy-Nose-Tetra.jpg", "Rummy Nose Tetra", "Peaceful", "Easy", 6, 2.5, 20, 76, 80, 6.4, 7.0,
+        -1, -1, -1, -1, "Heavily Planted", "Long", "", "Amazon Basin",
+        "Tightly schooling fish"
+    ),
+    Fish("https://cdn.shopify.com/s/files/1/1430/7150/products/Amano_Shrimp_APF_5000x.jpg?v=1569326039", "Amano Shrimp", "Peaceful", "Easy", 1, 2, 10, 65, 85, 6.0, 7.0,
+        1, 6, 5, 15, "Heavily Planted", "Regular", "Sand", "Japanese and Chinese freshwater streams",
+        "Should be fed separately, beyond just algae in tank"
+    ),
   ];
 
   //fish characteristics

@@ -15,7 +15,7 @@ class GalleryPage extends StatelessWidget {
         backgroundColor: Colors.blueGrey.shade100,
         appBar: AppBar(
           title: Text('Fish Gallery'),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Color(0xFF96C7C2),
         ),
         body: ListView.builder(
             itemCount: fishList.length,

@@ -7,7 +7,7 @@ class ContactPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('Contact Page'),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Color(0xFF96C7C2),
         ),
         body: Container(
             child: Column(
@@ -55,7 +55,7 @@ class ContactPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      '     Email: amalbjacob@gmail.com',
+                      '     Email: aquariumapp@gmail.com',
                       style: TextStyle(
                           fontSize:18.0,
                           color: Colors.black54),
@@ -67,7 +67,7 @@ class ContactPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      '     Phone: 425-626-9063',
+                      '     Phone: 425-123-4567',
                       style: TextStyle(
                           fontSize: 18.0,
                           color: Colors.black54),

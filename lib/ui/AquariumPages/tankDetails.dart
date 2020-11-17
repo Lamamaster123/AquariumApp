@@ -14,7 +14,7 @@ class FishTankDetails extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(tank.name),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Color(0xFF96C7C2),
         ),
         body: Container(
           child: Column(

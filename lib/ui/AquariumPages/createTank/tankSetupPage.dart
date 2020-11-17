@@ -22,7 +22,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tank Setup'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color(0xFF96C7C2),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.arrow_forward),
@@ -45,7 +45,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                   "Let's start with the basics",
                   style: TextStyle(
                       fontSize: 25.0,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       color: Colors.black54),
                 ),
               ),
@@ -106,7 +106,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                     width: 300.0,
                     alignment: Alignment(1.0, 0.0),
                     child: TextFormField(
-                      initialValue: 'My New Tank',
+                      initialValue: '10',
                       decoration: InputDecoration(
                         labelText: 'Size (gallons)',
                         border: OutlineInputBorder(),

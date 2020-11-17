@@ -21,7 +21,7 @@ class MyTanksPage extends StatelessWidget {
       backgroundColor: Colors.blueGrey.shade100,
       appBar: AppBar(
         title: Text('My Tanks'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color(0xFF96C7C2),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.add),

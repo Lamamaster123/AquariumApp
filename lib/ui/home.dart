@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/ui/AccountPages/accountEditPage.dart';
 import 'package:test_project/ui/AquariumPages/myTanksPage.dart';
 
 import 'homePage.dart';
@@ -19,8 +20,8 @@ class _HomeState extends State<Home> {
     }
   }*/
 
-  int _currentIndex = 0;
-  final List<Widget> _children = [HomePage(), MyTanksPage()];
+  int _currentIndex = 1;
+  final List<Widget> _children = [MyTanksPage(), HomePage(), AccountEditPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +32,12 @@ class _HomeState extends State<Home> {
         currentIndex: _currentIndex,
         items: [
           new BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+            icon: Icon(Icons.today),
+            title: Text('My Aquariums'),
           ),
           new BottomNavigationBarItem(
-            icon: Icon(Icons.today),
-            title: Text('Temp Aquarium'),
+            icon: Icon(Icons.home),
+            title: Text('Home'),
           ),
           new BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),

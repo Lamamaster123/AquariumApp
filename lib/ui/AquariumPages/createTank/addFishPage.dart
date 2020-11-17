@@ -11,6 +11,11 @@ class AddFishPage extends StatefulWidget {
 class _AddFishPageState extends State<AddFishPage> {
   List<Fish> fishList = Fish.getFish();
 
+  Future navigateToSubPage(context) async {
+    Navigator.popUntil(context, ModalRoute.withName('/'));
+        //MaterialPageRoute(builder: (context) => AddFishPage()));
+  }
+
   addFish(int index) {
 
     setState(() {
@@ -33,7 +38,15 @@ class _AddFishPageState extends State<AddFishPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Add Fish'),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Color(0xFF96C7C2),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.arrow_forward),
+              onPressed: () {
+                navigateToSubPage(context);
+              },
+            )
+          ],
         ),
         body: ListView.separated(
             separatorBuilder: (context, index) => Divider(
