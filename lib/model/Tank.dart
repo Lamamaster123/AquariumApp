@@ -2,25 +2,24 @@ import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
 
+import 'Fish.dart';
+
 class Tank {
   static List<Tank> getTanks() => [
+    //tester, not added but manually adding in code
     Tank("Big Tank", 38, "Regular", "Lightly Planted", "Sand",
-        {"Angelfish": 2, "Serpae Tetras": 7, "Ember Tetra": 1}),
-    Tank("Medium Tank", 10, "Regular", "Heavily Planted", "Sand",
-        {"Endler's Livebearers": 10, "Corydora Catfish": 4}),
-    Tank("Small Tank", 2.5, "Tall", "Heavily Planted", "Aquasoil",
-        {"Betta": 1}),
-    Tank("New Tank", 7, "Long", "Heavily Planted", "Aquasoil",
-        {"Neon Tetra": 8, "Guppies": 2}),
+        [Fish.getFish()[1]]),
   ];
+
+  static Tank getTemp() => Tank('My New Tank', 10.0, "Regular tank", "No plants", "None", Fish.getFish());
 
   String name;
   double size;
   String shape;
   String plantDensity;
   String substrate;
-  Map<String, int> fish;
+  List<Fish> fishes;
 
   Tank(this.name, this.size, this.shape, this.plantDensity, this.substrate,
-      this.fish);
+      this.fishes);
 }

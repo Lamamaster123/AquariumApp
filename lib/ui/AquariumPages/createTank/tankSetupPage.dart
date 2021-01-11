@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_project/model/DataHolder.dart';
+import 'package:test_project/model/Tank.dart';
 
 import 'cyclingPage.dart';
 
@@ -8,10 +10,8 @@ class TankSetupPage extends StatefulWidget {
   _TankSetupPageState createState() => _TankSetupPageState();
 }
 
+
 class _TankSetupPageState extends State<TankSetupPage> {
-  String dropdownValue1 = 'Regular tank';
-  String dropdownValue2 = 'No plants';
-  String dropdownValue3 = 'None';
 
   Future navigateToSubPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => CyclingPage()));
@@ -73,7 +73,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                     width: 300.0,
                     alignment: Alignment(1.0, 0.0),
                     child: TextFormField(
-                      initialValue: 'My New Tank',
+                      initialValue: DataHolder.name,
                       decoration: InputDecoration(
                         labelText: 'Tank name',
                         border: OutlineInputBorder(),
@@ -81,6 +81,12 @@ class _TankSetupPageState extends State<TankSetupPage> {
                           Icons.error,
                         ),*/
                       ),
+                      onChanged: (String newValue) {
+                        setState(() {
+                          DataHolder.name = newValue;
+                        });
+                      },
+
                     ),
                   ),
                 ],
@@ -106,7 +112,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                     width: 300.0,
                     alignment: Alignment(1.0, 0.0),
                     child: TextFormField(
-                      initialValue: '10',
+                      initialValue: DataHolder.size.toString(),
                       decoration: InputDecoration(
                         labelText: 'Size (gallons)',
                         border: OutlineInputBorder(),
@@ -114,6 +120,11 @@ class _TankSetupPageState extends State<TankSetupPage> {
                           Icons.error,
                         ),*/
                       ),
+                      onChanged: (String newValue) {
+                        setState(() {
+                          DataHolder.size = double.parse(newValue);
+                        });
+                      },
                     ),
                   ),
                 ],
@@ -139,7 +150,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                   ),
                   SizedBox(width: 180),
                   DropdownButton<String>(
-                    value: dropdownValue1,
+                    value: DataHolder.shape,
                     icon: Icon(Icons.arrow_downward),
                     iconSize: 24,
                     elevation: 16,
@@ -150,7 +161,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                     ),
                     onChanged: (String newValue) {
                       setState(() {
-                        dropdownValue1 = newValue;
+                        DataHolder.shape = newValue;
                       });
                     },
                     items: <String>['Regular tank', 'Long tank', 'Tall tank    ']
@@ -183,7 +194,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                   ),
                   SizedBox(width: 113),
                   DropdownButton<String>(
-                    value: dropdownValue2,
+                    value: DataHolder.plantDensity,
                     icon: Icon(Icons.arrow_downward),
                     iconSize: 24,
                     elevation: 16,
@@ -194,7 +205,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                     ),
                     onChanged: (String newValue) {
                       setState(() {
-                        dropdownValue2 = newValue;
+                        DataHolder.plantDensity = newValue;
                       });
                     },
                     items: <String>['No plants', 'Lightly planted', 'Densely planted']
@@ -218,7 +229,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
               Row(
                 children: [
                   Text(
-                    "  Plant Density",
+                    "  Substrate      ",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         fontSize: 20.0,
@@ -227,7 +238,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                   ),
                   SizedBox(width: 113),
                   DropdownButton<String>(
-                    value: dropdownValue3,
+                    value: DataHolder.substrate,
                     icon: Icon(Icons.arrow_downward),
                     iconSize: 24,
                     elevation: 16,
@@ -238,7 +249,7 @@ class _TankSetupPageState extends State<TankSetupPage> {
                     ),
                     onChanged: (String newValue) {
                       setState(() {
-                        dropdownValue3 = newValue;
+                        DataHolder.substrate = newValue;
                       });
                     },
                     items: <String>['None', 'Gravel', 'Sand', 'Garden soil', 'Aqua soil']

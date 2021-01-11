@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_project/model/DataHolder.dart';
 import 'package:test_project/model/Fish.dart';
+import 'package:test_project/model/Tank.dart';
 import 'package:test_project/ui/GalleryPages/fishDetails.dart';
 
 class AddFishPage extends StatefulWidget {
@@ -12,13 +14,19 @@ class _AddFishPageState extends State<AddFishPage> {
   List<Fish> fishList = Fish.getFish();
 
   Future navigateToSubPage(context) async {
+    addTank(Tank.getTemp());
     Navigator.popUntil(context, ModalRoute.withName('/'));
-        //MaterialPageRoute(builder: (context) => AddFishPage()));
+  }
+
+  addTank(Tank tank) {
+    DataHolder.tanks.add(new Tank(DataHolder.name, DataHolder.size, DataHolder.shape, DataHolder.plantDensity,
+    DataHolder.substrate, fishList));
   }
 
   addFish(int index) {
 
     setState(() {
+      print('added');
       fishList[index].numberOfFish += 1;
     });
 
@@ -93,6 +101,7 @@ class _AddFishPageState extends State<AddFishPage> {
                     child: IconButton(
                       icon: Icon(Icons.add),
                       onPressed: () {
+                        print("hello?");
                         addFish(index);
                       },
                     )

@@ -1,18 +1,27 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_project/model/DataHolder.dart';
+import 'package:test_project/model/Fish.dart';
 import 'package:test_project/model/Tank.dart';
 import 'package:test_project/ui/AquariumPages/tankDetails.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'createTank/tankSetupPage.dart';
 
-class MyTanksPage extends StatelessWidget {
-  //final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-  //var firestoreDb = FirebaseFirestore.instance.collection('tank').snapshots();
-  final List<Tank> tankList = Tank.getTanks();
+class MyTanksPage extends StatefulWidget {
+  @override
+  _MyTanksPageState createState() => _MyTanksPageState();
+}
+
+class _MyTanksPageState extends State<MyTanksPage> {
+  List<Tank> tankList = DataHolder.tanks;
 
   Future navigateToSubPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => TankSetupPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) =>
+        TankSetupPage())).then((value) => setState(() {
+          print("why");
+          tankList = DataHolder.tanks;
+    }));
   }
 
   @override

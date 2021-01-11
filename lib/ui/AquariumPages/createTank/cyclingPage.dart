@@ -10,6 +10,8 @@ class CyclingPage extends StatefulWidget {
 
 class _CyclingPageState extends State<CyclingPage> {
   bool cycled = false;
+  final String name;
+  _CyclingPageState({this.name});
 
   void _onCycled(bool newValue) => setState(() {
     cycled = newValue;
