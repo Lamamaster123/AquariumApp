@@ -5,6 +5,7 @@ import 'package:test_project/model/DataHolder.dart';
 import 'package:test_project/model/Tank.dart';
 import 'package:test_project/ui/homePage.dart';
 
+import 'editTank/editFishPage.dart';
 import 'editTank/editSetupPage.dart';
 
 class FishTankDetails extends StatefulWidget {
@@ -22,6 +23,14 @@ class _FishTankDetailsState extends State<FishTankDetails> {
     print("hello?");
     Navigator.push(context, MaterialPageRoute(
         builder: (context) => EditSetupPage(index: widget.index))).then((value) => setState(() {
+          widget.tank = DataHolder.tanks[widget.index];
+    }));;
+  }
+
+  Future navigateToEditFishPage(context) async {
+    print("hello?");
+    Navigator.push(context, MaterialPageRoute(
+        builder: (context) => EditFishPage(index: widget.index))).then((value) => setState(() {
           widget.tank = DataHolder.tanks[widget.index];
     }));;
   }
@@ -118,7 +127,7 @@ class _FishTankDetailsState extends State<FishTankDetails> {
 
               SizedBox(height: 15),
 
-              RaisedButton(onPressed: () {},
+              RaisedButton(
                   padding: EdgeInsets.fromLTRB(108.0, 15.0, 108.0, 15.0),
                   color: Colors.white54,
                   child: Text(
@@ -127,7 +136,10 @@ class _FishTankDetailsState extends State<FishTankDetails> {
                         fontSize: 18.0,
                         //fontWeight: FontWeight.bold,
                         color: Colors.black54),
-                  )
+                  ),
+                  onPressed: () {
+                    navigateToEditFishPage(context);
+                  }
               ),
 
               SizedBox(height: 15),
