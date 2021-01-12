@@ -1,19 +1,36 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_project/custom_stuff/customButton.dart';
+import 'package:test_project/model/DataHolder.dart';
 import 'package:test_project/model/Tank.dart';
 import 'package:test_project/ui/homePage.dart';
 
-class FishTankDetails extends StatelessWidget {
-  final Tank tank;
+import 'editTank/editSetupPage.dart';
 
-  const FishTankDetails({Key key, this.tank}) : super(key: key);
+class FishTankDetails extends StatefulWidget {
+  Tank tank;
+  final int index;
+  FishTankDetails({Key key, this.tank, this.index}) : super(key: key);
+
+  @override
+  _FishTankDetailsState createState() => _FishTankDetailsState();
+}
+
+class _FishTankDetailsState extends State<FishTankDetails> {
+
+  Future navigateToEditSetupPage(context) async {
+    print("hello?");
+    Navigator.push(context, MaterialPageRoute(
+        builder: (context) => EditSetupPage(index: widget.index))).then((value) => setState(() {
+          widget.tank = DataHolder.tanks[widget.index];
+    }));;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(tank.name),
+          title: Text(widget.tank.name),
           backgroundColor: Color(0xFF96C7C2),
         ),
         body: Container(
@@ -49,7 +66,7 @@ class FishTankDetails extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '     ${tank.size} gallon ${tank.shape.toLowerCase()}',
+                  '     ${widget.tank.size} gallon ${widget.tank.shape.toLowerCase()}',
                   style: TextStyle(
                       fontSize:18.0,
                       color: Colors.black54),
@@ -61,7 +78,7 @@ class FishTankDetails extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '     ${tank.plantDensity}',
+                  '     ${widget.tank.plantDensity}',
                   style: TextStyle(
                       fontSize: 18.0,
                       color: Colors.black54),
@@ -73,7 +90,7 @@ class FishTankDetails extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '     ${tank.substrate}',
+                  '     ${widget.tank.substrate}',
                   style: TextStyle(
                       fontSize: 18.0,
                       color: Colors.black54),
@@ -83,7 +100,7 @@ class FishTankDetails extends StatelessWidget {
 
               SizedBox(height: 40),
 
-              RaisedButton(onPressed: () {debugPrint('hello');},
+              RaisedButton(
                 padding: EdgeInsets.fromLTRB(100.0, 15.0, 100.0, 15.0),
                 color: Colors.white54,
                 child: Text(
@@ -92,12 +109,16 @@ class FishTankDetails extends StatelessWidget {
                       fontSize: 18.0,
                       //fontWeight: FontWeight.bold,
                       color: Colors.black54),
-                )
-              ),
+                ),
+                onPressed: () {
+                  navigateToEditSetupPage(context);
+                }
+
+                ),
 
               SizedBox(height: 15),
 
-              RaisedButton(onPressed: () {debugPrint('hello');},
+              RaisedButton(onPressed: () {},
                   padding: EdgeInsets.fromLTRB(108.0, 15.0, 108.0, 15.0),
                   color: Colors.white54,
                   child: Text(
@@ -111,7 +132,7 @@ class FishTankDetails extends StatelessWidget {
 
               SizedBox(height: 15),
 
-              RaisedButton(onPressed: () {debugPrint('hello');},
+              RaisedButton(onPressed: () {},
                   padding: EdgeInsets.fromLTRB(57.0, 15.0, 57.0, 15.0),
                   color: Colors.yellow,
                   child: Text(

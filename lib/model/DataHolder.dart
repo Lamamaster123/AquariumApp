@@ -10,8 +10,8 @@ class DataHolder {
   static String substrate = "None";
   static List<Tank> tanks = [
     //tester, not added but manually adding in code
-    Tank("Big Tank", 38, "Regular", "Lightly Planted", "Sand",
-        [Fish.getFish()[1]]),
+    //Tank("Big Tank", 38, "Regular", "Lightly Planted", "Sand",
+    //    [Fish.getFish()[1]]),
   ];
 
 }

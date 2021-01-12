@@ -19,7 +19,6 @@ class _MyTanksPageState extends State<MyTanksPage> {
   Future navigateToSubPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) =>
         TankSetupPage())).then((value) => setState(() {
-          print("why");
           tankList = DataHolder.tanks;
     }));
   }
@@ -35,7 +34,6 @@ class _MyTanksPageState extends State<MyTanksPage> {
           IconButton(
               icon: Icon(Icons.add),
               onPressed: () {
-                debugPrint("hello");
                 navigateToSubPage(context);
               },
           )
@@ -96,7 +94,9 @@ class _MyTanksPageState extends State<MyTanksPage> {
                       trailing: Text("..."),
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => FishTankDetails(tank: tankList[index],)));
+                            builder: (context) => FishTankDetails(tank: tankList[index], index: index))).then((value) => setState(() {
+                          tankList = DataHolder.tanks;
+                        }));;
                       }
                   ),
 

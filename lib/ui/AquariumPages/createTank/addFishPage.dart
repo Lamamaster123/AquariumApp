@@ -14,11 +14,11 @@ class _AddFishPageState extends State<AddFishPage> {
   List<Fish> fishList = Fish.getFish();
 
   Future navigateToSubPage(context) async {
-    addTank(Tank.getTemp());
+    addTank();
     Navigator.popUntil(context, ModalRoute.withName('/'));
   }
 
-  addTank(Tank tank) {
+  addTank() {
     DataHolder.tanks.add(new Tank(DataHolder.name, DataHolder.size, DataHolder.shape, DataHolder.plantDensity,
     DataHolder.substrate, fishList));
   }
@@ -38,7 +38,6 @@ class _AddFishPageState extends State<AddFishPage> {
         fishList[index].numberOfFish -= 1;
       });
     }
-
   }
 
   @override
