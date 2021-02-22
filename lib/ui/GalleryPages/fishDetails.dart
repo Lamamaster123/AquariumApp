@@ -58,7 +58,7 @@ class FishDetailsHeader extends StatelessWidget {
         HeaderText(text: "Characteristics"),
         SizedBox(height: 5),
         DescriptionText(text: "Temperament: ${fish.temperament}\n" + "Difficulty: ${fish.careLevel}\n"
-            + "Schooling size: ${fish.schoolSize}\n" + 'Maximum Size: ${fish.maxSize}"\n' + "Natural Habitat: ${fish.naturalHabitat}"),
+            + "Minimum Schooling Size: ${fish.schoolSize}\n" + 'Maximum Size: ${fish.maxSize}"\n' + "Natural Habitat: ${fish.naturalHabitat}"),
 
 
         SizedBox(height: 20),
@@ -107,7 +107,7 @@ class HeaderText extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.left,
-      style: TextStyle(
+          style: TextStyle(
           fontSize: 20.0,
           fontWeight: FontWeight.w600,
           color: Color(0xFF6E7FAA)),

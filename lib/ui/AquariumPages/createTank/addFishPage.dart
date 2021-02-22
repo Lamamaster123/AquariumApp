@@ -18,9 +18,11 @@ class _AddFishPageState extends State<AddFishPage> {
     Navigator.popUntil(context, ModalRoute.withName('/'));
   }
 
+
+  //adds finalized tank setup and warnings to list
   addTank() {
     DataHolder.tanks.add(new Tank(DataHolder.name, DataHolder.size, DataHolder.shape, DataHolder.plantDensity,
-    DataHolder.substrate, fishList));
+    DataHolder.substrate, fishList, []));
   }
 
   addFish(int index) {
