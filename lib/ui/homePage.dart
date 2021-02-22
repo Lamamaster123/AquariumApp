@@ -11,25 +11,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Home'),
-          centerTitle: true,
-          backgroundColor: Colors.blueGrey,
-          actions: <Widget>[
-            IconButton(
-                icon: Icon(Icons.settings),
-                onPressed: () => _tapAccount())
-          ],
-        ),
+        backgroundColor: Color(0xFF96C7C2),
+
 
         body: Container(
           alignment: Alignment.center,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF9BEBD8), Color(0xFF344683)]),
-          ),
+          //decoration: BoxDecoration(
+          //  gradient: LinearGradient(
+          //      begin: Alignment.topCenter,
+          //      end: Alignment.bottomCenter,
+          //      colors: [Color(0xFF9BEBD8), Color(0xFF344683)]),
+          //),
 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

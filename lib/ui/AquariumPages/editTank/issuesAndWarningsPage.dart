@@ -68,7 +68,7 @@ class _IssuesAndWarningsPageState extends State<IssuesAndWarningsPage> {
                 children:<Widget> [
                   Positioned(
                     child: Card(
-                      margin: EdgeInsets.only(left: 20),
+                      //margin: EdgeInsets.only(left: 20),
                       elevation: 4.5,
                       color: Colors.white,
                       child: ListTile(
