@@ -21,13 +21,19 @@ class FishTankDetails extends StatefulWidget {
 }
 
 class _FishTankDetailsState extends State<FishTankDetails> {
+  updateStuff() {
+    print("got to update function");
+    widget.tank = DataHolder.tanks[widget.index];
+    print("new size: " + widget.tank.size.toString());
+    calculateIssuesAndWarnings();
+  }
 
 
   Future navigateToEditSetupPage(context) async {
     print("hello?");
     Navigator.push(context, MaterialPageRoute(
         builder: (context) => EditSetupPage(index: widget.index))).then((value) => setState(() {
-          widget.tank = DataHolder.tanks[widget.index];
+          updateStuff();
     }));
   }
 
@@ -35,7 +41,7 @@ class _FishTankDetailsState extends State<FishTankDetails> {
     print("hello?");
     Navigator.push(context, MaterialPageRoute(
         builder: (context) => EditFishPage(index: widget.index))).then((value) => setState(() {
-          widget.tank = DataHolder.tanks[widget.index];
+          updateStuff();
     }));
   }
 
@@ -52,8 +58,8 @@ class _FishTankDetailsState extends State<FishTankDetails> {
     for (var i=0; i < DataHolder.tanks[widget.index].fishes.length; i++) {
       minTankSize += DataHolder.tanks[widget.index].fishes[i].maxSize * DataHolder.tanks[widget.index].fishes[i].numberOfFish;
     }
-    if (minTankSize > DataHolder.size) {
-      return new TankSizeWarning();
+    if (minTankSize > widget.tank.size) {
+      return new TankSizeWarning(minTankSize);
     }
     return null;
   }

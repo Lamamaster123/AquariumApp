@@ -10,7 +10,8 @@ abstract class Warning {
 }
 
 class TankSizeWarning extends Warning {
-  TankSizeWarning() : super('Tank Size Warning');
+  double recommendedSize;
+  TankSizeWarning(this.recommendedSize) : super('Tank Size Warning');
 }
 
 

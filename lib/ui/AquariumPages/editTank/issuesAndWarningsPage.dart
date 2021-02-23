@@ -17,9 +17,11 @@ class _IssuesAndWarningsPageState extends State<IssuesAndWarningsPage> {
 
   String subtitle(index) {
     if (DataHolder.tanks[widget.index].warnings[index].type == "Tank Size Warning") {
-      return "\nYour tank is overstocked. Reduce the fish in this tank.";
+      TankSizeWarning warning = DataHolder.tanks[widget.index].warnings[index];
+      return "\nYour tank is overstocked. Reduce the fish in this tank.\nRecommended tank size for current setup: "
+          + warning.recommendedSize.toString();
     } else if (DataHolder.tanks[widget.index].warnings[index].type == "School Size Warning") {
-      String s = "The following fish do not have a large enough school in your tank: ";
+      String s = "\nThe following fish do not have a large enough school in your tank: ";
       SchoolSizeWarning warning = DataHolder.tanks[widget.index].warnings[index];
       s += warning.fishes[0].name;
       for(int i=1; i<warning.fishes.length; i++) {

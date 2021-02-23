@@ -26,7 +26,9 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 90),
+
+              fishImage("https://www.pngkit.com/png/full/340-3400437_fish-food-icon-transparent-black-fish-icon.png"),
+              SizedBox(height: 50),
               Text(
                 'My Aquarium App',
                 style: TextStyle(
@@ -80,6 +82,19 @@ class HomePage extends StatelessWidget {
             ],
           ),*/
         ));
+  }
+
+  Widget fishImage(String imageUrl) {
+    return Container(
+      width: 200,
+      height: 130,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(imageUrl ?? ''),
+            fit: BoxFit.cover,
+          )
+      ),
+    );
   }
 }
 

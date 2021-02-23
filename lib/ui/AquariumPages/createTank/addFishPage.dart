@@ -102,7 +102,6 @@ class _AddFishPageState extends State<AddFishPage> {
                     child: IconButton(
                       icon: Icon(Icons.add),
                       onPressed: () {
-                        print("hello?");
                         addFish(index);
                       },
                     )
